@@ -13,7 +13,6 @@ class BuildChartDetial extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('https://api.pro45.com/$imgFile');
     PaintingBinding.instance.imageCache.clear();
     return Padding(
       padding: const EdgeInsets.all(0),
