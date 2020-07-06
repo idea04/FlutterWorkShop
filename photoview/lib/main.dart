@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:photoview/widget/buildchartdetial.dart';
+import 'package:photoview/widget/build_photo_view.dart';
+
+// ignore: non_constant_identifier_names
+String source_url = 'https://api.pro45.com/img/';
 
 void main() {
   runApp(MyApp());
@@ -27,79 +30,65 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              color: Colors.white10,
-              padding: const EdgeInsets.all(2),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Colors.black,
-                  boxShadow: [
-                    BoxShadow(color: Colors.grey, spreadRadius: 1),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Expanded(
-                            child: Text(
-                          " Photo:",
-                          style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.indigo,
-                              fontWeight: FontWeight.bold),
-                        )),
-                        IconButton(
-                          icon: Icon(
-                            Icons.cancel,
-                            size: 25,
-                            color: Colors.red,
-                          ),
-                          tooltip: 'Close Photo',
-                          onPressed: () {},
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: BuildChartDetial(
-                        context: context,
-                        imgFile: 'ifxpro.png',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            )
-          ],
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-    );
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                color: Colors.white10,
+                padding: const EdgeInsets.all(2),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.white70,
+                    boxShadow: [
+                      BoxShadow(color: Colors.grey, spreadRadius: 1),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Expanded(
+                              child: Text(
+                            " Photo:",
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.indigo,
+                                fontWeight: FontWeight.bold),
+                          )),
+                          IconButton(
+                            icon: Icon(
+                              Icons.cancel,
+                              size: 25,
+                              color: Colors.red,
+                            ),
+                            tooltip: 'Close Photo',
+                            onPressed: () {},
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: BuildPhotoView(
+                          context: context,
+                          imgFile: source_url + 'logo45.png', // Load picture
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }
